@@ -1,17 +1,3 @@
-// Mock data for dropdown options
-const mockOptions = [
-  { id: 1, value: "apple", label: "Apple" },
-  { id: 2, value: "banana", label: "Banana" },
-  { id: 3, value: "cherry", label: "Cherry" },
-  { id: 4, value: "date", label: "Date" },
-  { id: 5, value: "elderberry", label: "Elderberry" },
-  { id: 6, value: "fig", label: "Fig" },
-  { id: 7, value: "grape", label: "Grape" },
-  { id: 8, value: "kiwi", label: "Kiwi" },
-  { id: 9, value: "lemon", label: "Lemon" },
-  { id: 10, value: "mango", label: "Mango" }
-];
-
 // DOM elements
 const dropdownHeader = document.querySelector('.dropdown-header');
 const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -20,32 +6,6 @@ const dropdownPlaceholder = document.querySelector('.dropdown-placeholder');
 const selectAllCheckbox = document.querySelector('#select-all');
 const dropdownOptions = document.querySelector('.dropdown-options');
 const selectedValuesDisplay = document.querySelector('#selected-values');
-
-// Initialize the dropdown options
-function initializeDropdown() {
-  // Populate options
-  mockOptions.forEach(option => {
-    const optionElement = document.createElement('div');
-    optionElement.className = 'dropdown-option';
-    
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.id = `option-${option.id}`;
-    checkbox.value = option.value;
-    checkbox.dataset.label = option.label;
-    
-    const label = document.createElement('label');
-    label.htmlFor = `option-${option.id}`;
-    label.textContent = option.label;
-    
-    optionElement.appendChild(checkbox);
-    optionElement.appendChild(label);
-    dropdownOptions.appendChild(optionElement);
-  });
-  
-  // Set up event listeners
-  setupEventListeners();
-}
 
 // Set up all event listeners
 function setupEventListeners() {
@@ -82,31 +42,6 @@ function setupEventListeners() {
       updateSelectAllCheckbox();
       updateSelectedDisplay();
     });
-  });
-  
-  // Make the label clicks work for the checkboxes
-  const optionLabels = dropdownOptions.querySelectorAll('label');
-  optionLabels.forEach(label => {
-    label.addEventListener('click', function(event) {
-      // Prevent the default behavior to avoid double-toggle
-      event.preventDefault();
-      const checkbox = document.querySelector(`#${label.htmlFor}`);
-      checkbox.checked = !checkbox.checked;
-      
-      // Trigger change event manually
-      const changeEvent = new Event('change');
-      checkbox.dispatchEvent(changeEvent);
-    });
-  });
-  
-  // Also make the "Select All" label work
-  const selectAllLabel = document.querySelector('label[for="select-all"]');
-  selectAllLabel.addEventListener('click', function(event) {
-    event.preventDefault();
-    selectAllCheckbox.checked = !selectAllCheckbox.checked;
-    
-    const changeEvent = new Event('change');
-    selectAllCheckbox.dispatchEvent(changeEvent);
   });
 }
 
@@ -159,7 +94,7 @@ function getSelectedValues() {
 }
 
 // Initialize the dropdown when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initializeDropdown);
+document.addEventListener('DOMContentLoaded', setupEventListeners);
 
 // Make the getSelectedValues function globally accessible
 window.getSelectedValues = getSelectedValues;
