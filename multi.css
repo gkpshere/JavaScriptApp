@@ -80,15 +80,18 @@ h2 {
   padding: 10px 15px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   border-bottom: 1px solid #eee;
   font-weight: bold;
 }
 
+.select-all-option,
 .dropdown-option {
   padding: 8px 15px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
 }
 
@@ -99,7 +102,7 @@ h2 {
 
 .select-all-option input,
 .dropdown-option input {
-  margin-right: 10px;
+  margin-left: 10px;
   cursor: pointer;
 }
 
