@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Select Dropdown with Checkboxes</title>
+  <link rel="stylesheet" href="./multi.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Multi-Select Dropdown Example</h2>
+    
+    <div class="multi-select-dropdown">
+      <div class="dropdown-header">
+        <span class="dropdown-placeholder">Select options</span>
+        <span class="dropdown-arrow">&#9662;</span>
+      </div>
+      <div class="dropdown-menu">
+        <div class="select-all-option">
+          <input type="checkbox" id="select-all" />
+          <label for="select-all">Select All</label>
+        </div>
+        <div class="dropdown-options">
+          <!-- Options will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="result-display">
+      <h3>Selected Values:</h3>
+      <div id="selected-values">None</div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* Main styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Multi-select dropdown styles */
+.multi-select-dropdown {
+  position: relative;
+  width: 300px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 30px;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.dropdown-header:hover {
+  border-color: #999;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  background-color: #fff;
+  z-index: 1000;
+  display: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.select-all-option {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+}
+
+.dropdown-option {
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.select-all-option:hover,
+.dropdown-option:hover {
+  background-color: #f5f5f5;
+}
+
+.select-all-option input,
+.dropdown-option input {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.select-all-option label,
+.dropdown-option label {
+  cursor: pointer;
+  user-select: none;
+  flex: 1;
+}
+
+.selected-count {
+  margin-left: 5px;
+  font-size: 0.8em;
+  color: #666;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 2px 8px;
+}
+
+/* Result display styles */
+.result-display {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.result-display h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+#selected-values {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  min-height: 40px;
+  word-break: break-all;
+}
